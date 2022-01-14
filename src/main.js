@@ -5,6 +5,7 @@ const app = new App({
 	props: {
 		name: 'world'
 	}
+	// dddd
 });
 
 export default app;
