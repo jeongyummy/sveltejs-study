@@ -1,32 +1,16 @@
 <script>
-	let name = 'world';
-	let isRed = false
-
-	function enter() {
-		name = 'enter'
-	}
-
-	function leave() {
-		name = 'leave'
-	}
+	let text = ''
 </script>
 
 <main>
-	<h1>Hello {name} !!! </h1>
-	<div class="box"
-		style="background-color: {isRed ? 'red' : 'yellow'}"
-		on:click={() => {isRed = !isRed}}
-		on:mouseente={enter}
-		on:mouseleave={leave}
-	>
-	boxbox
-	</div>
+	<h1>Hello {text} !! </h1>
+	<input type="text" value={text} on:input={(e) => {text = e.target.value}} />
+	<input type="text" bind:value={text} on:input={(e) => {text.e.target.value}} /> 
+	<!-- bind 가 붙으면 양방향 바인딩, 없으면 그냥 단방향 바인딩 -->
+	<button on:click={() => {text = 'jeong'}}>
+	Click
+	</button>
 </main>
 
 <style>
-.box {
-	width: 300px;
-	height: 150px;
-	background-color: yellow;
-}
 </style>
