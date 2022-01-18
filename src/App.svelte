@@ -1,12 +1,8 @@
 <script>
-	import Fruits from './Fruits.svelte'
+	import Parent from './Parent.svelte'
 
-	let fruits = ['Apple', 'Banana', 'Cherry', 'Orange', 'Mango']
-
+	let name = 'world';
 </script>
 
-
-<Fruits {fruits} />
-<Fruits {fruits} reverse />
-<Fruits {fruits} slice="-2" />
-<Fruits {fruits} slice="0, 3" />
+<h1>Hello {name}</h1>
+<Parent name={name} />
