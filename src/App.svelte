@@ -1,15 +1,26 @@
 <script>
-	import { storeName } from './store.js'
-	import Parent from './Parent.svelte'
+	import Todo from './Todo.svelte'
+	let title = ''
+	let todos = []
+	let id = 0
 
-	let name = 'world';
-	$storeName = name
-	// console.log(storeName)
-	// console.log($storeName)
-
-	// 앞에 $이 있으면 실제데이터가 된다.
+	function createTodo() {
+		todos.push({
+			id,
+			// 고유한 id 만들어줘야함
+			title
+		})
+		todos = todos
+		title = ''
+		id += 1
+	}
 
 </script>
 
-<h1>Hello {name}</h1>
-<Parent />
+<input bind:value={title} type="text" 
+		on:keydown={(e) => {e.key === 'Enter' && createTodo()}} />
+<button on:click={createTodo}>+</button>
+
+	{#each todos as todo}
+		<Todo {todo}/>
+	{/each}
